@@ -9,14 +9,14 @@ response = requests.get(f"{link}/products").json()
 filtered_items = [item for item in response if int(item["price"]) < 20]
 for item in filtered_items:
     print(f"{item['title']} по цене {item['price']}")
+print('='*30, end='\n\n')
 
 # Выводим все категории
-print('='*30, end='\n\n')
 print("Все категории")
 print("\n".join(requests.get(link + "/products/categories").json()) + '\n')
+print('='*30, end='\n\n')
 
 # Выводим все проудкты с конкретной категорией
-print('='*30, end='\n\n')
 print("Все продукты с категорией  'jewelery'")
 response = requests.get(link + "/products/category/jewelery").json()
 for product in response:
@@ -30,9 +30,9 @@ for user in response:
     for key, value in user.items():
         print(f"{key}: {value}")
     print('-'*15)
+print('='*30, end='\n\n')
 
 # Добавляем пользователя
-print('='*30, end='\n\n')
 print("Добавляем пользователя со своим именем")
 new_user = {
                 "email":'goldfarbm@mail.ru',
